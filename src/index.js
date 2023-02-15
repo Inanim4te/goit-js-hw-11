@@ -86,9 +86,10 @@ submBtn.addEventListener('click', async e => {
   e.preventDefault();
   gallery.innerHTML = '';
   currentPage = 1;
+  totalFound = 0;
   loadBtn.style.display = 'none';
   await getPictures();
-  if (totalFound) {
+  if (totalFound !== 0) {
     Notify.success(`Hooray! We found ${totalFound} images.`);
   }
 });
@@ -97,5 +98,3 @@ loadBtn.addEventListener('click', () => {
   currentPage += 1;
   getPictures();
 });
-
-console.log(1);
